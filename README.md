@@ -24,7 +24,7 @@ Il secondo comando avvia un server locale Node senza dipendenze. Non è richiest
 
 | Fonte | Dati | Limiti |
 | --- | --- | --- |
-| CheapShark | fino a 60 offerte PC per risposta, nomi degli store dalla fonte | prezzi USD, selezione e non catalogo completo; link di uscita CheapShark preservati |
+| CheapShark | fino a 60 offerte generali + 60 Steam + 60 GOG, deduplicate per ID offerta, nomi degli store dalla fonte | prezzi USD, selezione e non catalogo completo; link di uscita CheapShark preservati |
 | GamerPower | omaggi, DLC e beta su più piattaforme | selezione editoriale, non controllo integrale di ogni store; indicazioni di regione/abbonamento da verificare nella pagina originale |
 | Catalogo editoriale | giochi e software, anche per store aggiuntivi | aggiornato manualmente da `public/catalog.json`, inizialmente vuoto |
 
@@ -68,3 +68,7 @@ I prezzi non vengono convertiti in euro. La destinazione originale resta il rife
 - https://www.gamerpower.com/api-read
 
 Le attribuzioni sono visibili nel footer. I collegamenti CheapShark richiesti dalla fonte sono preservati. Non è stata usata IsThereAnyDeal: i termini richiedono valutazione specifica per un servizio di confronto offerte.
+
+## PippoDeal: filtri e piattaforme
+
+Interfaccia aggiornata con tag rapidi sotto 5/10/20, sconti minimi 50/75%, filtro prezzo personalizzabile con soglie 5/10/20/30/50, valuta USD/EUR, piattaforma, store e categoria. Le soglie sono esclusive: sotto 5 esclude 5 esatti. Con un prezzo massimo attivo, non vengono confrontate valute diverse; gli omaggi restano inclusi. I prezzi non sono convertiti in euro. Steam e GOG sono caricati con richieste dedicate usando gli ID store restituiti da CheapShark. Se un feed fallisce, gli altri restano disponibili e la copertura parziale viene segnalata.
